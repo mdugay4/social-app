@@ -1,8 +1,15 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            media="screen"
+            href="{% static 'styles/main.css' %}"
+        />
         <title>Social App</title>
     </head>
     <body>
@@ -12,6 +19,10 @@
             <li>{{ message }}</li>
             {% endfor %}
         </ul>
-        {% endif %} {% block content %} {% endblock %}
+        {% endif %}
+
+        <!-- <img src="{% static 'images/HomePage.png' %}" alt="" /> -->
+
+        {% block content %} {% endblock %}
     </body>
 </html>
