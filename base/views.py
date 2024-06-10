@@ -40,6 +40,9 @@ def logoutUser(request):
     return redirect('home')
 
 def loginPage(request):
+    # all_users = User.objects.values()
+    # for user in all_users:
+    #     print(user['username'])
     page = 'login'
 
     if request.user.is_authenticated:
@@ -48,6 +51,7 @@ def loginPage(request):
     if request.method == 'POST':
         username = request.POST.get('username').lower()
         password = request.POST.get('password')
+        # print(username, password)
 
         try:
             user = User.objects.get(username=username)
