@@ -162,3 +162,4 @@ cython_debug/
 # personal ignores
 TODO.md
 admin.txt
+apiTest.html
