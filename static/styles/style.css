@@ -4,13 +4,16 @@
     --color-main: #7597de;
     /* --color-main: #71c6dd; */
     --color-main-light: #e1f6fb;
-    --color-dark: #3f4156;
-    --color-dark-medium: #51546e;
-    --color-dark-light: #696d97;
+    --color-dark: #1d1836;
+    /* --color-dark: #3f4156; */
+    --color-dark-medium: #050816;
+    /* --color-dark-medium: #51546e; */
+    --color-dark-light: #7597de;
     --color-light: #e5e5e5;
     --color-gray: #8b8b8b;
     --color-light-gray: #b2bdbd;
-    --color-bg: #2d2d39;
+    --color-bg: #050816;
+    /* --color-bg: #2d2d39; */
     --color-success: #5dd693;
     --color-error: #fc4b0b;
 }
@@ -743,7 +746,7 @@ a {
     text-transform: uppercase;
     font-weight: 500;
     padding: 1rem 1.5rem;
-    color: var(--color-light);
+    color: var(--color-dark);
     letter-spacing: 1px;
     font-size: 1.4rem;
 }
