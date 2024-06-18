@@ -86,6 +86,14 @@ def home(request):
     context = {'rooms': rooms, 'topics': topics, 'room_count': room_count, 'room_messages': room_messages}
     return render(request, 'base/home.html', context)
 
+def userProfile(request, id):
+    user = User.objects.get(id=id)
+    rooms = user.room_set.all()
+    room_messages = user.message_set.all()
+    topics = Topic.objects.all()
+    context = {'user': user, 'rooms': rooms, 'room_messages': room_messages, 'topics': topics}
+    return render(request, 'base/profile.html', context)
+
 def room(request, id):
     room = Room.objects.get(id=id)
     room_messages = room.message_set.all()
@@ -103,18 +111,11 @@ def room(request, id):
     context = {'room': room, 'room_messages': room_messages, 'participants': participants}
     return render(request, 'base/room.html', context)
 
-def userProfile(request, id):
-    user = User.objects.get(id=id)
-    rooms = user.room_set.all()
-    room_messages = user.message_set.all()
-    topics = Topic.objects.all()
-    context = {'user': user, 'rooms': rooms, 'room_messages': room_messages, 'topics': topics}
-    return render(request, 'base/profile.html', context)
-
 @login_required(login_url='login')
-def createRoom(request):
+def createRoom(request, id):
     form = RoomForm()
     topics = Topic.objects.all()
+    room = Room.objects.get(id=id)
 
     if request.method == 'POST':
         # print(request.POST)
@@ -127,6 +128,7 @@ def createRoom(request):
             name=request.POST.get('name'),
             description=request.POST.get('description'),
         )
+        room.participants.add(request.user)
 
         return redirect('home')
 
