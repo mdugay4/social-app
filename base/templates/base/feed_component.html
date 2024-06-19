@@ -6,9 +6,15 @@
             href="{% url 'user-profile' room.host.id %}"
             class="roomListRoom__author"
         >
+            {% if user.is_authenticated %}
+            <div class="avatar avatar--small active">
+                <img src="{{room.host.avatar.url}}" />
+            </div>
+            {% else %}
             <div class="avatar avatar--small">
                 <img src="{{room.host.avatar.url}}" />
             </div>
+            {% endif %}
             <span>@{{room.host.username}}</span>
         </a>
         <div class="roomListRoom__actions">

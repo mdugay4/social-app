@@ -26,12 +26,12 @@ def registerPage(request):
         form = MyUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.username = user.username.lower()
+            # user.username = user.username.lower()
             user.save()
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request, 'An error occurred during regisratiton')
+            messages.error(request, 'An error occurred during registratiton')
 
     return render(request, 'base/login_register.html', {'form': form})
 
@@ -96,6 +96,7 @@ def userProfile(request, id):
 
 def room(request, id):
     room = Room.objects.get(id=id)
+    room.participants.add(room.host)
     room_messages = room.message_set.all()
     participants = room.participants.all()
 
@@ -112,23 +113,22 @@ def room(request, id):
     return render(request, 'base/room.html', context)
 
 @login_required(login_url='login')
-def createRoom(request, id):
+def createRoom(request):
     form = RoomForm()
     topics = Topic.objects.all()
-    room = Room.objects.get(id=id)
 
     if request.method == 'POST':
         # print(request.POST)
         topic_name = request.POST.get('topic')
         topic, created = Topic.objects.get_or_create(name=topic_name)
 
-        Room.objects.create(
+        currentRoom = Room.objects.create(
             host=request.user,
             topic=topic,
             name=request.POST.get('name'),
             description=request.POST.get('description'),
         )
-        room.participants.add(request.user)
+        currentRoom.participants.add(request.user)
 
         return redirect('home')
 

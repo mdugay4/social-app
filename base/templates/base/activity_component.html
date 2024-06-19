@@ -39,11 +39,14 @@
         </div>
         <div class="activities__boxContent">
             <p>
-                replied to post “<a href="{% url 'room' message.room.id %}"
+                replied to post <br />“<a
+                    href="{% url 'room' message.room.id %}"
                     >{{message.room}}</a
                 >”
             </p>
-            <div class="activities__boxRoomContent">{{message.body}}</div>
+            <div class="activities__boxRoomContent">
+                {{message.body|truncatewords:10}}
+            </div>
         </div>
     </div>
     {% endfor %}
