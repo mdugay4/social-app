@@ -74,7 +74,7 @@
                 <div class="room__header scroll">
                     <div class="room__info">
                         <h3>{{room.name}}</h3>
-                        <span>{{room.created|timesince}} ago</span>
+                        <span>{{room.created|date:'m/d/y'}}</span>
                     </div>
                     <div class="room__hosted">
                         <p>Hosted By</p>
@@ -110,7 +110,8 @@
                                         <span>@{{message.user.username}}</span>
                                     </a>
                                     <span class="thread__date"
-                                        >{{message.created|timesince}} ago</span
+                                        >{{message.created|date:"m/d/y"}}
+                                        {{message.created|time}}</span
                                     >
                                 </div>
                                 <div class="room__topRight">
@@ -169,6 +170,7 @@
                                 {% endif %}
                             </div>
                             <div class="thread__details">{{message.body}}</div>
+                            <!-- <span>(Edited)</span> -->
                         </div>
                         {% endfor %}
                     </div>

@@ -5,7 +5,8 @@
     /* --color-main: #7597de; */
     /* --color-main: #71c6dd; */
     --color-main-light: #e1f6fb;
-    --color-dark: #1d1836;
+    --color-dark: #2b223c;
+    /* --color-dark: #1d1836; */
     /* --color-dark: #3f4156; */
     --color-dark-medium: #050816;
     /* --color-dark-medium: #51546e; */
@@ -98,7 +99,7 @@ a {
 }
 
 .btn--link:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .btn--main {
@@ -556,7 +557,7 @@ a {
 }
 
 .form__avatar label:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 /*==============================
@@ -601,7 +602,7 @@ a {
 }
 
 .topics-page a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .topics-page .topics__list li:not(:last-child) a {
@@ -653,6 +654,10 @@ a {
     border-radius: 1rem;
     padding: 2rem;
 }
+
+/* .roomListRoom div:hover {
+    cursor: pointer;
+} */
 
 .roomListRoom__header {
     display: flex;
@@ -780,7 +785,7 @@ a {
 }
 
 .activities__boxContent a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .activities__boxRoomContent {
