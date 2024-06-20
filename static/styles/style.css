@@ -938,7 +938,7 @@ a {
 .thread__top svg {
     width: 1.6rem;
     height: 1.6rem;
-    fill: var(--color-light);
+    fill: var(--color-dark);
     cursor: pointer;
 }
 
@@ -952,13 +952,13 @@ a {
 .participants__top {
     text-transform: uppercase;
     font-weight: 500;
-    color: var(--color-light);
+    color: var(--color-dark);
 }
 
 .room__topLeft svg {
     width: 1.6rem;
     height: 1.6rem;
-    fill: var(--color-light);
+    fill: var(--color-dark);
 }
 
 .room__topRight {
@@ -1035,7 +1035,7 @@ a {
 }
 
 .room__author:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .room__topics {
@@ -1117,7 +1117,7 @@ a {
 .room__message > form > input {
     resize: none;
     background-color: var(--color-dark-light);
-    color: var(--color-light);
+    color: var(--color-dark);
     border: none;
     outline: none;
     border-radius: 0.7rem;
@@ -1131,7 +1131,7 @@ a {
 }
 
 .room__message > form > input::placeholder {
-    color: var(--color-light-gray);
+    color: var(--color-dark);
 }
 
 .participants__top span {

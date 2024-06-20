@@ -185,6 +185,21 @@ def deleteMessage(request, id):
     return render(request, 'base/delete.html', {'obj': message})
 
 @login_required(login_url='login')
+def editMessage(request, id):
+    message = Message.objects.get(id=id)
+
+    if request.user != message.user:
+        return HttpResponse('You are not allowed to')
+    
+    if request.method == 'POST':
+        message.body = request.POST.get('body')
+        message.save()
+        next = request.POST.get('next', '/')
+        return redirect(next)
+
+    return render(request, 'base/edit_message.html', {'room': room, 'message': message})
+
+@login_required(login_url='login')
 def updateUser(request):
     user = request.user
     form = UserForm(instance=user)
