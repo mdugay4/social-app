@@ -618,7 +618,7 @@ a {
 
 @media screen and (max-width: 500px) {
     .mobile-menu .header__search {
-        display: block;
+        display: none;
         margin-bottom: 2.4rem;
     }
 }
@@ -972,7 +972,8 @@ a {
 }
 
 .room__topRight svg {
-    fill: var(--color-main-light);
+    /* fill: var(--color-main-light); */
+    fill: var(--color-dark);
 }
 
 .room__header {
@@ -1046,7 +1047,7 @@ a {
 .room__topics {
     padding: 0.5rem 1.5rem;
     background: var(--color-dark-light);
-    color: var(--color-light);
+    color: var(--color-dark);
     display: inline-block;
     font-size: 1.4rem;
     border-radius: 1.5rem;
@@ -1140,8 +1141,8 @@ a {
 }
 
 .participants__top span {
-    color: var(--color-main);
-    font-size: 1.3rem;
+    color: var(--color-dark);
+    font-size: 1.5rem;
     text-transform: none;
 }
 
