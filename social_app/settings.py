@@ -91,15 +91,15 @@ WSGI_APPLICATION = 'social_app.wsgi.application'
 #     }
 # }
 
+import dj_database_url
+import os
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'qdndVwQjGYlDJbQfQKWOcyTWspHhLoAo',
-        'HOST': 'roundhouse.proxy.rlwy.net',
-        'PORT': '28350',
-    }
+    "default": dj_database_url.config(
+        default=os.environ.get("DATABASE_URL"),
+        conn_max_age=600,
+        ssl_require=True
+    )
 }
 
 
