@@ -1,5 +1,8 @@
 {
     "version": 2,
+    "projectSettings": {
+        "rootDirectory": "base"
+    },
     "routes": [
         {
             "src": "/static/(.*)",
